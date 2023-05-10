@@ -27,18 +27,16 @@ const application = async () => {
   try {
     const stylesPath = path.resolve(__dirname,'styles');
     const distPath = path.resolve(__dirname,'project-dist');
-
-    const Abcontroller = new AbortController();
-    const { signal } = Abcontroller;
+    const AbController = new AbortController();
+    const { signal } = AbController;
 
     const files = await promis.readdir(stylesPath, { withFileTypes: true });
 
     let result = [];
 
-    for (const item of files) {
-      if (item.isFile() && path.extname(item.name) === '.css') {
-        const data = await promis.readFile(path.join(stylesPath, item.name), { encoding: 'utf8' });
-
+    for (i of files) {
+      if (i.isFile() && path.extname(i.name) === '.css') {
+        const data = await promis.readFile(path.join(stylesPath, i.name), { encoding: 'utf8' });
         result.push(data);
       }
     }
