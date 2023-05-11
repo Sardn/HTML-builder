@@ -41,7 +41,7 @@ const application = async () => {
       }
     }
 
-    await promis.writeFile(path.join(distPath, 'bundle.css'), result, { signal });
+    await promis.writeFile(path.join(distPath, 'bundle.css'), result.join('\n'), { signal });
   } catch (err) {
     console.error(err.message);
   }
